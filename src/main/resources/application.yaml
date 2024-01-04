@@ -1,0 +1,23 @@
+server:
+  port: 9595
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/note_it?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root1234
+  spring:
+    jpa:
+    properties:
+      hibernate:
+        dialect: org:hibernate:dialect:MySQL8Dialect
+        ddl-auto: verify
+        temp:
+          use_jdbc_metadata_defaults: true
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog-master.xml
+
+custom:
+  token:
+    expiration-in-millis: 7200000
